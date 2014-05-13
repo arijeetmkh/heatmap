@@ -1,0 +1,8 @@
+Django==1.6.4
+argparse==1.2.1
+beautifulsoup4==4.3.2
+ipython==2.0.0
+mongoengine==0.8.7
+pymongo==2.7
+requests==2.2.1
+wsgiref==0.1.2

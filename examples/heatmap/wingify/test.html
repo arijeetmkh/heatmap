@@ -309,14 +309,15 @@
     $(document).ready(function() {
 
         $('body').on('click', function(t) {
+            console.log(t);
             var width = t.target.clientWidth;
             var height = t.target.clientHeight;
             var XPATH = getXPath(t.target);
-            var offsetx = t.offsetX;
-            var offsety = t.offsetY;
+            //Offsetxy not available on firefox
+            var offsetx = (t.offsetX || (t.pageX - $(t.target).offset().left));
+            var offsety = (t.offsetY || (t.pageY - $(t.target).offset().top));
             var params = 'xpath=' + encodeURIComponent(XPATH) + '&xratio=' + (width/offsetx) + '&yratio=' + (height/offsety) + '&' + Math.random();
             $('<img src="http://127.0.0.1:8000/record?' + params + '">');
-
         });
 
     });
